@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 import LandingPage from './pages/LandingPage';
-
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 // Admin
 import ProductManagePage from './pages/admin/ProductManagePage';
 import AddProductPage from './pages/admin/AddProductPage';
@@ -20,6 +21,8 @@ function App() {
       <div className="min-h-screen bg-gray-100">
         <Routes>
 
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/" element={<LandingPage />} />
           {/* User routes */}
           <Route path="/user" element={<ProductListPage />} />

@@ -9,13 +9,13 @@ function LandingPage() {
       <h1 className="text-4xl font-bold text-gray-800 mb-8">Chào mừng đến hệ thống thương mại</h1>
       <div className="flex space-x-6">
         <button
-          onClick={() => navigate('/user')}
+          onClick={() => navigate('/login')}
           className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
         >
           👤 Vào trang User
         </button>
         <button
-          onClick={() => navigate('/admin')}
+          onClick={() => navigate('/login')}
           className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
         >
           🛠️ Vào trang Admin

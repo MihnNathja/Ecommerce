@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const productRoutes = require('./routes/productRoutes');
 const categoryRoutes = require('./routes/categoryRoutes.js');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 app.use(cors());
@@ -13,6 +14,7 @@ app.use(express.json());
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/users', userRoutes);
 
 
 // Connect DB and Start server
