@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { register } from '../services/api';
 
 function RegisterPage() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-
+  const navigate = useNavigate();
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -62,6 +63,13 @@ function RegisterPage() {
           className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded font-semibold"
         >
           Đăng ký
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate('/login')}
+          className="w-full mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 rounded font-semibold"
+        >
+          Quay về đăng nhập
         </button>
       </form>
     </div>

@@ -1,11 +1,11 @@
-import Category from '../models/Category.js';
+const Category = require('../models/Category');
 
-export const getAllCategories = async (req, res) => {
+const getAllCategories = async (req, res) => {
   const categories = await Category.find();
   res.json(categories);
 };
 
-export const addCategory = async (req, res) => {
+const addCategory = async (req, res) => {
   const { name } = req.body;
   const exists = await Category.findOne({ name });
   if (exists) return res.status(400).json({ message: 'Đã tồn tại' });
@@ -14,3 +14,5 @@ export const addCategory = async (req, res) => {
   await newCategory.save();
   res.status(201).json(newCategory);
 };
+
+module.exports = { getAllCategories, addCategory };

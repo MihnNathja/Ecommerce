@@ -10,15 +10,15 @@ function LandingPage() {
       <div className="flex space-x-6">
         <button
           onClick={() => navigate('/login')}
-          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
+          className="w-60 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
         >
-          👤 Vào trang User
+          👤 Đăng nhập
         </button>
         <button
-          onClick={() => navigate('/login')}
-          className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
+          onClick={() => navigate('/register')}
+          className="w-60 bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
         >
-          🛠️ Vào trang Admin
+          🛠️ Đăng ký
         </button>
       </div>
     </div>

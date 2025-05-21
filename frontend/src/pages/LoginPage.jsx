@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import { login } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
  const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,6 +61,13 @@ function LoginPage() {
           className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded font-semibold"
         >
           Đăng nhập
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate('/register')}
+          className="w-full mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 rounded font-semibold"
+        >
+          Đăng ký tài khoản
         </button>
       </form>
     </div>

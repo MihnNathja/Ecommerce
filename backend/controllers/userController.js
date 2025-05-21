@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 // Đăng ký tài khoản mới
-exports.register = async (req, res) => {
+const register = async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
@@ -16,7 +16,7 @@ exports.register = async (req, res) => {
 };
 
 // Đăng nhập
-exports.login = async (req, res) => {
+const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
 };
 
 // Lấy thông tin user theo id
-exports.getUserById = async (req, res) => {
+const getUserById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -55,7 +55,7 @@ exports.getUserById = async (req, res) => {
 };
 
 // Cập nhật thông tin user
-exports.updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
   const { id } = req.params;
   const { name, email, password } = req.body;
 
@@ -78,4 +78,11 @@ exports.updateUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error updating user', error });
   }
+};
+
+module.exports = {
+  register,
+  login,
+  getUserById,
+  updateUser,
 };
