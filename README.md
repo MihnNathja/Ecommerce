@@ -11,7 +11,7 @@ Công nghệ sử dụng:
 
 ---
 
-## ✅ Cài đặt thủ công (không dùng Docker)
+## 🛠️ Cài đặt 
 
 ### 📦 Yêu cầu hệ thống
 
@@ -110,6 +110,11 @@ Bạn có thể thay đổi nếu backend chạy ở cổng khác hoặc qua IP.
 
 ---
 
+## 🪄Tính năng có thể triển khai
+- Đăng nhập
+- Đăng ký
+- ...
+---
 ## 🧪 Kiểm tra nhanh sau khi chạy thành công
 
 1. Mở `http://localhost:5173`
@@ -127,4 +132,4 @@ Liên hệ người phát triển nếu cần hỗ trợ cấu hình hoặc tri�
 
 ---
 
-Chúc bạn triển khai thành công hệ thống thương mại này! 🚀
+Đây là hệ thống chỉ dùng với mục đích học tập, nên hoàn toàn không có cấu hình bảo mật, cân nhắc trước khi sử dụng! 🚀
