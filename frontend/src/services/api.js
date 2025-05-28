@@ -2,10 +2,13 @@ import axios from 'axios';
 
 const API = axios.create({
   baseURL: 'http://localhost:5000/api', // backend đang chạy port 5000
+  withCredentials: true,
 });
+
 
 export const login = (data) => API.post('/users/login', data);
 export const register = (data) => API.post('/users/register', data);
+export const getUserById = (id) => API.get(`/users/${id}`);
 
 export const getProducts = () => API.get('/products');
 export const getProductById = (id) => API.get(`/products/${id}`);
