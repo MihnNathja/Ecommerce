@@ -10,5 +10,6 @@ router.get('/:id', authMiddleware, userController.getUserById);
 router.put('/:id', authMiddleware, userController.updateUser);
 router.post('/forgot-password', userController.sendOtp);
 router.post('/reset-password', userController.resetPassword);
+router.post('/verify-otp', userController.verifyOtp);
 
 module.exports = router;

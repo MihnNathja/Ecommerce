@@ -8,7 +8,10 @@ const categoryRoutes = require('./routes/categoryRoutes.js');
 const userRoutes = require('./routes/userRoutes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173', // Đúng địa chỉ frontend của bạn
+  credentials: true, // Cho phép gửi cookie, header xác thực
+}));
 app.use(express.json());
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
@@ -17,6 +20,9 @@ app.use(cookieParser());
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/users', userRoutes);
+
+
+
 
 
 // Connect DB and Start server

@@ -69,6 +69,13 @@ function LoginPage() {
         >
           Đăng ký tài khoản
         </button>
+        <button
+          type="button"
+          onClick={() => navigate('/forgot-password')}
+          className="w-full mt-2 bg-blue-100 hover:bg-blue-200 text-blue-700 py-2 rounded font-semibold"
+        >
+          Quên mật khẩu?
+        </button>
       </form>
     </div>
   );

@@ -9,6 +9,9 @@ const API = axios.create({
 export const login = (data) => API.post('/users/login', data);
 export const register = (data) => API.post('/users/register', data);
 export const getUserById = (id) => API.get(`/users/${id}`);
+export const forgotPassword = (data) => API.post('/users/forgot-password', data);
+export const resetPassword = (data) => API.post('/users/reset-password', data);
+export const verifyOtp = (data) => API.post('/users/verify-otp', data);
 
 export const getProducts = () => API.get('/products');
 export const getProductById = (id) => API.get(`/products/${id}`);

@@ -131,12 +131,20 @@ const resetPassword = async (req, res) => {
 
   res.json({ message: 'Đổi mật khẩu thành công' });
 };
+const verifyOtp = async (req, res) => {
+  const { email, otp } = req.body;
+  const user = await User.findOne({ email, otp, otpExpires: { $gt: Date.now() } });
+  if (!user) return res.status(400).json({ message: 'OTP không hợp lệ hoặc đã hết hạn' });
+
+  res.json({ message: 'OTP hợp lệ' });
+};
 
 module.exports = {
   register,
   login,
   getUserById,
   updateUser,
-  sendOtp,  
-  resetPassword
+  sendOtp,
+  resetPassword,
+  verifyOtp
 };
