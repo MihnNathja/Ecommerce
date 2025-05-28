@@ -16,6 +16,8 @@ import EditProductPage from './pages/admin/EditProductPage';
 
 // User
 import ProductListPage from './pages/user/ProductListPage';
+import CartPage from './pages/user/CartPage';
+
 
 function App() {
   return (
@@ -30,7 +32,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           {/* User routes */}
           <Route path="/user" element={<ProductListPage />} />
-
+          <Route path="/cart" element={<CartPage />} />
           {/* Admin routes */}
           <Route path="/admin" element={<ProductManagePage />} />
           <Route path="/admin/add" element={<AddProductPage />} />

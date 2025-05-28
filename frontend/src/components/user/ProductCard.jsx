@@ -28,7 +28,7 @@ function ProductCard({ product, onAddToCart }) {
         </div>
 
         <button
-          onClick={() => onAddToCart(product._id)}
+          onClick={() => onAddToCart({ productId: product._id })}
           className="mt-auto w-full py-2 text-sm font-semibold text-white rounded bg-orange-500 hover:bg-orange-600"
         >
           Thêm vào giỏ hàng

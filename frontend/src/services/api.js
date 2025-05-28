@@ -19,5 +19,10 @@ export const createProduct = (data) => API.post('/products/', data);
 export const updateProduct = (id, data) => API.put(`/products/${id}`, data);
 export const deleteProduct = (id) => API.delete(`/products/${id}`);
 
+export const addToCart = (data) => API.post('/cart', data);
+export const getCart = () => API.get('/cart');
+export const updateCart = (id, data) => API.put(`/cart/${id}`, data);
+export const removeFromCart = (id) => API.delete(`/cart/${id}`);
+
 export const getCategories = () => API.get('/categories');
 export const createCategory = (data) => API.post('/categories', data);

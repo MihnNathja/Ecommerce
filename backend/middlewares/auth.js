@@ -4,6 +4,7 @@ const User = require('../models/User');
 const authMiddleware = async (req, res, next) => {
   //const token = req.headers.authorization?.split(' ')[1];
   const token = req.cookies.token;
+  console.log('Token nhận được:', token);
   if (!token) return res.status(401).json({ message: 'No token' });
 
   try {

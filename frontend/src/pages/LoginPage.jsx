@@ -15,7 +15,6 @@ function LoginPage() {
     setError('');
     try {
       const res = await login({ email, password });
-      localStorage.setItem('token', res.data.token);
 
       // Lấy role từ token hoặc từ res.data.role
       let role = res.data.role;
