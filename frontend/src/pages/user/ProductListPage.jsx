@@ -4,7 +4,7 @@ import ProductCard from '../../components/user/ProductCard';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import UserNavbar from '../user/UserNavbar';
+import UserNavbar from '../../components/user/UserNavbar';
 
 function ProductListPage() {
   const [products, setProducts] = useState([]);
@@ -19,11 +19,9 @@ function ProductListPage() {
   const handleAddToCart = ({productId}) => {
     addToCart({ productId })
       .then((res) => {
-        console.log('Thêm vào giỏ hàng thành công:', res.data);
         toast.success('Sản phẩm đã được thêm vào giỏ hàng!');
       })
       .catch((err) => {
-        console.error('Lỗi khi thêm vào giỏ hàng:', err);
         toast.error('Không thể thêm vào giỏ hàng. Vui lòng thử lại sau.');
       });
   };

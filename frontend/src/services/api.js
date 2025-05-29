@@ -8,7 +8,7 @@ const API = axios.create({
 
 export const login = (data) => API.post('/users/login', data);
 export const register = (data) => API.post('/users/register', data);
-export const getUserById = (id) => API.get(`/users/${id}`);
+export const getCurrentUser = () => API.get('/users/me');
 export const forgotPassword = (data) => API.post('/users/forgot-password', data);
 export const resetPassword = (data) => API.post('/users/reset-password', data);
 export const verifyOtp = (data) => API.post('/users/verify-otp', data);
@@ -23,6 +23,7 @@ export const addToCart = (data) => API.post('/cart', data);
 export const getCart = () => API.get('/cart');
 export const updateCart = (id, data) => API.put(`/cart/${id}`, data);
 export const removeFromCart = (id) => API.delete(`/cart/${id}`);
+export const clearCart = () => API.delete('/cart'); 
 
 export const getCategories = () => API.get('/categories');
 export const createCategory = (data) => API.post('/categories', data);

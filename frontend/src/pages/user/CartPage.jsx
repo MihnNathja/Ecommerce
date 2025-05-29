@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { getCart, updateCart, removeFromCart } from '../../services/api';
-import UserNavbar from '../user/UserNavbar';
+import UserNavbar from '../../components/user/UserNavbar';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 function CartPage() {
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const fetchCart = async () => {
     try {
@@ -41,6 +43,11 @@ function CartPage() {
         toast.error('Xóa sản phẩm thất bại!');
       });
   };
+
+  const handleCheckout = () => {
+    navigate('/order', { state: { cart } });
+  };
+
   return (
     <div>
         <UserNavbar />
@@ -94,6 +101,14 @@ function CartPage() {
             ))}
             </tbody>
         </table>
+        <div className="text-right">
+            <button
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onClick={() => handleCheckout()}
+            >
+            Thanh toán
+            </button>
+        </div>
         <div className="text-right font-bold text-lg">
             Tổng cộng: {cart.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0).toLocaleString()}₫
         </div>

@@ -17,6 +17,7 @@ import EditProductPage from './pages/admin/EditProductPage';
 // User
 import ProductListPage from './pages/user/ProductListPage';
 import CartPage from './pages/user/CartPage';
+import OrderPage from './pages/user/OrderPage';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           {/* User routes */}
           <Route path="/user" element={<ProductListPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/order" element={<OrderPage />} />
           {/* Admin routes */}
           <Route path="/admin" element={<ProductManagePage />} />
           <Route path="/admin/add" element={<AddProductPage />} />

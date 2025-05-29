@@ -44,18 +44,20 @@ const login = async (req, res) => {
   }
 };
 
-// Lấy thông tin user theo id
-const getUserById = async (req, res) => {
-  const { id } = req.params;
-
+// Lấy thông tin user hiện tại
+const getCurrentUser = async (req, res) => {
   try {
-    const user = await User.findById(id);
-
+    const user = await User.findById(req.user._id);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    const { password, ...userData } = user.toObject();
-    res.status(200).json({ user: userData });
+    res.status(200).json({ 
+      user: {  
+        email: user.email, 
+        name: user.name,
+        address: user.address,
+        phone: user.phone 
+      }});
   } catch (error) {
     res.status(500).json({ message: 'Error fetching user', error });
   }
@@ -142,7 +144,7 @@ const verifyOtp = async (req, res) => {
 module.exports = {
   register,
   login,
-  getUserById,
+  getCurrentUser,
   updateUser,
   sendOtp,
   resetPassword,

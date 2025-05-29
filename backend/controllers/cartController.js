@@ -2,7 +2,6 @@ const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 
 const addToCart = async (req, res) => {
-  console.log('req.body:', req.body);
   const userId = req.user._id; // Lấy từ middleware xác thực
   const { productId } = req.body;
 
@@ -77,9 +76,24 @@ const removeFromCart = async (req, res) => {
   res.json({ message: 'Sản phẩm đã được xóa khỏi giỏ hàng', cart });
 };
 
+const clearCart = async (req, res) => {
+  const userId = req.user._id;
+
+  let cart = await Cart.findOne({ user: userId });
+  if (!cart) {
+    return res.status(404).json({ message: 'Giỏ hàng không tồn tại' });
+  }
+  cart.items = [];
+  await cart.save();
+
+  res.json({ message: 'Giỏ hàng đã được làm trống', cart });
+};
+
+
 module.exports = {
   addToCart,
   getCart,
   updateCart,
-  removeFromCart
+  removeFromCart,
+  clearCart
 };
