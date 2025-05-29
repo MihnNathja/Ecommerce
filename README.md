@@ -1,12 +1,12 @@
 # 🛒 Ecommerce Web App
 
 Website thương mại điện tử gồm:
-- 👤 Giao diện người dùng (User) để xem sản phẩm
-- 🛠️ Giao diện quản trị (Admin) để thêm/sửa/xoá sản phẩm, thêm loại sản phẩm
+- 👤 Giao diện người dùng (User): xem sản phẩm, thêm vào giỏ hàng, đặt hàng, quản lý đơn hàng cá nhân.
+- 🛠️ Giao diện quản trị (Admin): thêm/sửa/xoá sản phẩm, thêm loại sản phẩm, ẩn/hiện sản phẩm.
 
-Công nghệ sử dụng:
-- **Frontend**: React + Vite + TailwindCSS
-- **Backend**: Node.js + Express
+## Công nghệ sử dụng
+- **Frontend**: React + Vite + TailwindCSS + React Router + React Toastify
+- **Backend**: Node.js + Express + Mongoose (MongoDB)
 - **Database**: MongoDB
 
 ---
@@ -15,9 +15,8 @@ Công nghệ sử dụng:
 
 ### 📦 Yêu cầu hệ thống
 
-Trên máy mới, cần cài đặt:
-- [Node.js](https://nodejs.org/) (khuyên dùng phiên bản >= 16)
-- [MongoDB](https://www.mongodb.com/try/download/community) Community Server (chạy trên `localhost:27017`)
+- [Node.js](https://nodejs.org/) >= 16
+- [MongoDB](https://www.mongodb.com/try/download/community) (chạy trên `localhost:27017`)
 
 ---
 
@@ -42,10 +41,12 @@ npm install
 
 ### Bước 2: Tạo file `.env`
 Tạo file `backend/.env` với nội dung:
-
 ```
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/ecommerce
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_app_password
+JWT_SECRET=your_jwt_secret
 ```
 
 > Thay đổi `MONGO_URI` nếu bạn dùng MongoDB Atlas hoặc port khác.
@@ -54,13 +55,7 @@ MONGO_URI=mongodb://localhost:27017/ecommerce
 ```bash
 npm run dev
 ```
-
-> Mặc định server chạy tại: `http://localhost:5000`
-
-Nếu thành công, bạn sẽ thấy log:
-```
-Server running on port 5000
-```
+> Server chạy tại: `http://localhost:5000`
 
 ---
 
@@ -76,19 +71,31 @@ npm install
 ```bash
 npm run dev
 ```
+> Ứng dụng chạy tại: `http://localhost:5173`
 
-> Mặc định ứng dụng chạy tại: `http://localhost:5173`
+---
 
-### Các trang chính:
-- Trang landing chọn vai trò: `http://localhost:5173/`
-- Trang user xem sản phẩm: `http://localhost:5173/user`
-- Trang admin quản lý: `http://localhost:5173/admin`
+## 🌟 Các tính năng đã hoàn thành
+
+### Trang user:
+- Đăng nhập, đăng ký, quên mật khẩu, đặt lại mật khẩu qua email/OTP.
+- Hiển thị danh sách sản phẩm dạng card, responsive grid.
+- Thêm sản phẩm vào giỏ hàng, chỉnh sửa/xoá sản phẩm trong giỏ.
+- Trang giỏ hàng: tăng/giảm số lượng, xoá sản phẩm, xem tổng tiền.
+- Trang thanh toán: nhập/chỉnh sửa địa chỉ, số điện thoại, chọn phương thức thanh toán, xác nhận đặt hàng.
+- Thông báo (toast) khi thêm/xoá sản phẩm, thanh toán thành công.
+
+### Trang admin:
+- Đăng nhập với quyền admin.
+- Thêm, sửa, xoá sản phẩm.
+- Thêm loại sản phẩm (qua popup).
+- Hiển thị sản phẩm dạng bảng.
 
 ---
 
 ## 📌 Ghi chú cấu hình API frontend
 
-Trong file `frontend/services/api.js`, baseURL đã mặc định trỏ về:
+Trong file `frontend/src/services/api.js`, baseURL đã mặc định trỏ về:
 ```js
 baseURL: 'http://localhost:5000/api'
 ```
@@ -96,33 +103,12 @@ Bạn có thể thay đổi nếu backend chạy ở cổng khác hoặc qua IP.
 
 ---
 
-## ✅ Tính năng đã hoàn thành
-
-### Trang admin:
-- Thêm, sửa, xoá sản phẩm
-- Ẩn/hiện sản phẩm
-- Thêm loại sản phẩm (qua popup)
-- Hiển thị sản phẩm dạng bảng
-
-### Trang user:
-- Hiển thị danh sách sản phẩm theo card
-- Responsive grid
-
----
-
-## 🪄Tính năng có thể triển khai
-- Đăng nhập
-- Đăng ký
-- ...
----
 ## 🧪 Kiểm tra nhanh sau khi chạy thành công
 
 1. Mở `http://localhost:5173`
-2. Chọn "Admin" để:
-   - Thêm một loại sản phẩm mới
-   - Tạo một sản phẩm thuộc loại đó
-3. Chọn "User" để:
-   - Kiểm tra sản phẩm vừa được hiển thị
+2. Đăng ký tài khoản mới hoặc đăng nhập.
+3. Thêm sản phẩm vào giỏ hàng, kiểm tra chức năng giỏ hàng và thanh toán.
+4. Đăng nhập admin tại `/admin` để quản lý sản phẩm.
 
 ---
 
@@ -132,4 +118,4 @@ Liên hệ người phát triển nếu cần hỗ trợ cấu hình hoặc tri�
 
 ---
 
-Đây là hệ thống chỉ dùng với mục đích học tập, nên hoàn toàn không có cấu hình bảo mật, cân nhắc trước khi sử dụng! 🚀
+> Đây là hệ thống phục vụ mục đích học tập, chưa có cấu hình bảo mật sản xuất. Hãy cân nhắc trước khi sử dụng cho mục đích thực tế!
